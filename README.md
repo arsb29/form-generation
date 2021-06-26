@@ -19,15 +19,15 @@ render(elem, json);
     "inputs": [
     {
         "label": "Фамилия",
-        "type": "text" | "checkbox" | "date" | "email" | "password" | "number" | "tel" | "select" | "textarea",
+        "type": "text" | "checkbox" | "date" | "email" | "password" | "number" | "tel" | "textarea",
         "id": "last_name",
         "placeholder": "Беляев"
     },
     {
-        "label": "Возраст",
-        "type": "number",
-        "id": "age",
-        "placeholder": "21"
+        "label": "Ваша машина",
+        "type": "select",
+        "id": "cars",
+        "options": ['Volvo', 'Saab', 'Opel', 'Audi']
     }
     ]
     "submit": {
