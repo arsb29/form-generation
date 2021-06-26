@@ -14,7 +14,7 @@ render(elem, json);
 ```
 
 ## Структура JSON
-```json
+```js
 {
     "inputs": [
     {
