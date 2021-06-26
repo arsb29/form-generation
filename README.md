@@ -14,35 +14,25 @@ render(elem, json);
 ```
 
 ## Структура JSON
-```
+```json
 {
-  "inputs": [
-    {
-    "label": "Фамилия",
-    "type": "text" | "checkbox" | "date" | "email" | "password" | "number" | "tel",
-    "id": "last_name",
-    "placeholder": "Беляев"
-    },
-    {
-    "label": "Возраст",
-    "type": "number",
-    "id": "age",
-    "placeholder": "21"
-    },
-    "label": "Ваша машина",
-    "type": "select",
-    "id": "cars",
-    "options": ['Volvo', 'Saab', 'Opel', 'Audi']
-    },
-    {
-    "label": "О себе",
-    "type": "textarea",
-    "id": "textarea"
-		},
-   ]
-  "submit": {
-    "url": "www.example.com",
-    "text": "Отправить"
-  }
+	"inputs": [
+	{
+		"label": "Фамилия",
+		"type": "text" | "checkbox" | "date" | "email" | "password" | "number" | "tel" | "select" | "textarea",
+		"id": "last_name",
+		"placeholder": "Беляев"
+	},
+	{
+		"label": "Возраст",
+		"type": "number",
+		"id": "age",
+		"placeholder": "21"
+	}
+	]
+	"submit": {
+		"url": "www.example.com",
+		"text": "Отправить"
+	}
 }
 ```
