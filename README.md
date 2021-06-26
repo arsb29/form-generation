@@ -21,7 +21,8 @@ render(elem, json);
         "label": "Фамилия",
         "type": "text" | "checkbox" | "date" | "email" | "password" | "number" | "tel" | "textarea",
         "id": "last_name",
-        "placeholder": "Беляев"
+        "placeholder": "Беляев",
+        "required": 1 | 0
     },
     {
         "label": "Ваша машина",
