@@ -7,7 +7,7 @@
 ```js
 import { render } from './js/form.js';
 
-		const elem = document.querySelector('.module')
+const elem = document.querySelector('.module');
 
-		render(elem, json)
+render(elem, json);
 ```
