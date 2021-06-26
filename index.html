@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+
+<body>
+	<div class="module"></div>
+	<script type="module">
+		import { render } from './js/form.js';
+
+		const json = {
+			"inputs": [
+				{
+					"label": "Имя",
+					"type": "text",
+					"id": "first_name",
+					"placeholder": "Арсений",
+					"required": 1
+				},
+				{
+					"label": "Фамилия",
+					"type": "text",
+					"id": "last_name",
+					"placeholder": "Беляев",
+					"required": 0
+				},
+				{
+					"label": "Ранее менялась",
+					"type": "checkbox",
+					"id": "checkbox_last_name",
+					"placeholder": "Фамилия_placeholder",
+					"required": 1
+				},
+				{
+					"label": "Дата рождения",
+					"type": "date",
+					"id": "date",
+				},
+				{
+					"label": "Почта",
+					"type": "email",
+					"id": "email",
+					"placeholder": "ars-bel@mail.ru"
+				},
+				{
+					"label": "Пароль",
+					"type": "password",
+					"id": "password",
+					"placeholder": "Пароль"
+				},
+				{
+					"label": "Возраст",
+					"type": "number",
+					"id": "age",
+					"placeholder": "21"
+				},
+				{
+					"label": "Телефон",
+					"type": "tel",
+					"id": "tel",
+					"placeholder": "+7 (929) 122 29-29"
+				},
+				{
+					"label": "Мой настоящий номер",
+					"type": "checkbox",
+					"id": "checkbox"
+				},
+				{
+					"label": "О себе",
+					"type": "textarea",
+					"id": "textarea"
+				},
+				{
+					"label": "Ваша машина",
+					"type": "select",
+					"id": "cars",
+					"options": ['Volvo', 'Saab', 'Opel', 'Audi']
+				}
+			],
+			"submit": {
+				"url": "www.example.com",
+				"text": "Отправить"
+			}
+		}
+		const elem = document.querySelector('.module')
+
+		render(elem, json)
+	</script>
+</body>
+
+</html>
