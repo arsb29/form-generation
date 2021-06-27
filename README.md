@@ -39,4 +39,8 @@ render(elem, json);
 ```
 
 ## Темная тема
+Чтобы поменять тему необходимо третьим параметром передать название темы
+```js
+render(elem, json, 'dark');
+```
 ![Темная тема](https://user-images.githubusercontent.com/47639785/123540152-3a41b780-d746-11eb-8706-70dae743d756.gif)
