@@ -1,9 +1,18 @@
-export function render(parent, json) {
+export function render(parent, json, theme = 'light') {
 	const div = document.createElement('div');
+
 	div.attachShadow({ mode: 'open' });
 	div.shadowRoot.innerHTML = `<style>
 		* {
 			font-family: sans-serif;
+		}
+
+		.container {
+			padding: 15px;
+		}
+
+		.container-dark {
+			background-color: #222;
 		}
 		
 		.item {
@@ -18,6 +27,10 @@ export function render(parent, json) {
 			margin: 0 10px 0 0;
 			overflow: hidden;
 			text-overflow: ellipsis;
+		}
+
+		.item__label-dark {
+			color: #eee;
 		}
 
 		.item__label-checkbox {
@@ -36,6 +49,16 @@ export function render(parent, json) {
 			padding: 10px 15px;
 			border-radius: 15px;
 			border: 1px solid #aaa;
+		}
+
+		.item__input-dark {
+			background-color: #666;
+			border: none;
+			color: #eee;
+		}
+
+		.item__input-dark::placeholder {
+			color: #bbb;
 		}
 
 		.item__input-checkbox {
@@ -58,19 +81,30 @@ export function render(parent, json) {
 			transition: all 0.5s ease 0s;
 		}
 
+		.btn-dark {
+			background-color: #666;
+			border: none;
+			color: #eee;
+		}
+
 		.btn:hover {
 			background-color: #eee;
+		}
+
+		.btn-dark:hover {
+			background-color: #444;
 		}
 	</style>`;
 
 	const form = document.createElement('form');
 	form.setAttribute('action', json.submit.url);
+	form.classList.add('container', `container-${theme}`)
 	json.inputs.forEach(element => {
 		switch (element.type) {
 			case 'select':
 				form.innerHTML += `<div class='item'>
-				<label class='item__label' for=${element.id}>${element.label}</label>
-				<select class='item__input' id=${element.id} name=${element.id + '_list'} >
+				<label class='item__label item__label-${theme}' for=${element.id}>${element.label}</label>
+				<select class='item__input item__input-${theme}' id=${element.id} name=${element.id + '_list'} >
 					${element.options.map(value => `<option value=${value} >${value}</option>`).join('')}
 				</select>
 		</div>`
@@ -78,26 +112,26 @@ export function render(parent, json) {
 
 			case 'textarea':
 				form.innerHTML += `<div class='item'>
-				<label class='item__label item__label-textarea' for=${element.id}>${element.label}</label>
-				<textarea class='item__input item__input-textarea' type=${element.type} id=${element.id} >${element.placeholder ? element.placeholder : ''}</textarea>
+				<label class='item__label item__label-textarea item__label-${theme}' for=${element.id}>${element.label}</label>
+				<textarea class='item__input item__input-textarea item__input-${theme}' type=${element.type} id=${element.id} >${element.placeholder ? element.placeholder : ''}</textarea>
 		</div>`
 				break;
 
 			case 'checkbox':
 				form.innerHTML += `<div class='item'>
-				<input class='item__input-checkbox ' type=${element.type} id=${element.id} ${element.required ? "required" : ""} />
-				<label class='item__label-checkbox' for=${element.id}>${element.label}</label>
+				<input class='item__input-checkbox' type=${element.type} id=${element.id} ${element.required ? "required" : ""} />
+				<label class='item__label-checkbox item__label-${theme}' for=${element.id}>${element.label}</label>
 		</div>`
 				break;
 
 			default:
 				form.innerHTML += `<div class='item'>
-				<label class='item__label' for=${element.id}>${element.label}</label>
-				<input class='item__input' type=${element.type} id=${element.id} ${element.placeholder ? 'placeholder=' + element.placeholder : ''} ${element.required ? "required" : ""} />
+				<label class='item__label item__label-${theme}' for=${element.id}>${element.label}</label>
+				<input class='item__input item__input-${theme}' type=${element.type} id=${element.id} ${element.placeholder ? 'placeholder=' + element.placeholder : ''} ${element.required ? "required" : ""} />
 		</div>`
 		}
 	})
-	form.innerHTML += `<button class="btn" type="submit">${json.submit.text}</button>`
+	form.innerHTML += `<button class="btn btn-${theme}" type="submit">${json.submit.text}</button>`
 
 	div.shadowRoot.appendChild(form)
 	parent.appendChild(div)
