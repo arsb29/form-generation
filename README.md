@@ -1,4 +1,5 @@
 <h1 align="center">Тестовое задание для стажёра в команду фронтенд-инфраструктуры</h1>
+![Генератор форм](https://user-images.githubusercontent.com/47639785/123558926-aef60f80-d7a1-11eb-8c3f-552a27732e8b.png)
 
 ## Демо
 Демо версию проекта можно посмотреть [здесь](https://arsb29.github.io/form-generation/).
