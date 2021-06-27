@@ -14,6 +14,11 @@ render(elem, json);
 ```
 
 ## Структура JSON
+JSON имеет два объекта:
+<ul>
+    <li>inputs - поля формы</li>
+    <li>submit - инфо по отправки формы</li>
+</ul>
 ```js
 {
     "inputs": [
